@@ -54,7 +54,7 @@ print('\n')
 print('Type for each row')
 print(df.dtypes)
 
-"""#Exploration Data Analysis
+"""#Exploratory Data Analysis
 
 The correlation between Exam Score and Sleep Hours is 0.18, which is relatively low. This suggests a weak relationship between the two variables, indicating that Exam Score is not strongly influenced by Sleep Hours. Running the correlation between Exam Scores and Attendance Percent shows that there isn't much of a relation there either.
 
@@ -163,38 +163,3 @@ To summarize:
 - Students who did well on their first exam don't necessarily do well on their final, and likewise those who did bad don't necessarily do bad again
 - And finally, students who *study BENEFIT THE MOST!!!*
 """
-
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-
-file_path = '/content/student_exam_scores.csv'
-gh_url = 'https://github.com/avr33-boop/CS301-Midterm-Project/'
-
-try:
-  df = pd.read_csv(file_path)
-except:
-  df = pd.read_csv(gh_url + 'blob/main/content/student_exam_scores.csv?raw=true')
-
-print(df)
-print(df.describe())
-
-plt.hist(df['exam_score'], bins=10)
-plt.xlabel('Exam Score')
-plt.ylabel('Frequency')
-plt.title('Distribution of Exam Scores')
-plt.show();
-
-print(df[['sleep_hours', 'exam_score']].corr())
-
-plt.scatter(df['sleep_hours'], df['exam_score'])
-plt.xlabel('Sleep Hours')
-plt.ylabel('Exam Score')
-plt.title('Relationship between Sleep Hours and Exam Scores')
-plt.show();
-
-dff = pd.DataFrame(data);
-print("\n", dff)
-
-datafill = dff.fillna('Unknown')
-print("\n", datafill)
